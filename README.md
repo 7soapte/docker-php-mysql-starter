@@ -19,7 +19,7 @@ Open up a terminal or a command line at the base of the project and run
 docker-compose up
 ```
 
-## Extra notes
+## Notes
 
 If all went well, you should be able to see:
 
@@ -37,6 +37,22 @@ In order to stop containers and remove containers, networks, volumes, and images
 
 ```bash
 docker-compose down
+```
+
+## Extra note
+In order to get a successful query in your [page](http://localhost:8000), log into your [database](http://localhost:8080) and run this query:
+```sql
+drop table if exists `users`;
+create table `users` (
+    id int not null auto_increment,
+    username text not null,
+    password text not null,
+    primary key (id)
+);
+insert into `users` (username, password) values
+    ("admin","password"),
+    ("Alice","this is my password"),
+    ("Job","12345678");
 ```
 
 ## End note
